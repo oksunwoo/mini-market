@@ -13,6 +13,8 @@
 		53805E56280DB2FA006AC65A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53805E54280DB2FA006AC65A /* Main.storyboard */; };
 		53805E58280DB2FC006AC65A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53805E57280DB2FC006AC65A /* Assets.xcassets */; };
 		53805E5B280DB2FC006AC65A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53805E59280DB2FC006AC65A /* LaunchScreen.storyboard */; };
+		53805E672816F02B006AC65A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53805E662816F02B006AC65A /* Product.swift */; };
+		53805E692816F474006AC65A /* ProductPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53805E682816F474006AC65A /* ProductPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		53805E57280DB2FC006AC65A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53805E5A280DB2FC006AC65A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53805E5C280DB2FC006AC65A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53805E662816F02B006AC65A /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		53805E682816F474006AC65A /* ProductPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		53805E4D280DB2FA006AC65A /* mini-market */ = {
 			isa = PBXGroup;
 			children = (
+				53805E6A2816F4B6006AC65A /* Model */,
 				53805E4E280DB2FA006AC65A /* AppDelegate.swift */,
 				53805E50280DB2FA006AC65A /* SceneDelegate.swift */,
 				53805E52280DB2FA006AC65A /* ViewController.swift */,
@@ -65,6 +70,15 @@
 				53805E5C280DB2FC006AC65A /* Info.plist */,
 			);
 			path = "mini-market";
+			sourceTree = "<group>";
+		};
+		53805E6A2816F4B6006AC65A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				53805E662816F02B006AC65A /* Product.swift */,
+				53805E682816F474006AC65A /* ProductPage.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +152,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53805E692816F474006AC65A /* ProductPage.swift in Sources */,
 				53805E53280DB2FA006AC65A /* ViewController.swift in Sources */,
+				53805E672816F02B006AC65A /* Product.swift in Sources */,
 				53805E4F280DB2FA006AC65A /* AppDelegate.swift in Sources */,
 				53805E51280DB2FA006AC65A /* SceneDelegate.swift in Sources */,
 			);
