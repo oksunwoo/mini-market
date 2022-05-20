@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductPage {
+struct ProductPage: Codable {
     let pageNumber: Int
     let itemsPerPage: Int
     let totalCount: Int
@@ -17,4 +17,12 @@ struct ProductPage {
     let lastPage: Int
     let hasNextPage: Bool
     let hasPrevPage: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case itemsPerPage, totalCount, offset, limit, lastPage
+        case products = "pages"
+        case pageNumber = "pageNo"
+        case hasNextPage = "hasNext"
+        case hasPrevPage = "hasPrev"
+    }
 }
