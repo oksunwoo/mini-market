@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53097F71283783110053B9EF /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53097F70283783110053B9EF /* Network.swift */; };
 		53805E4F280DB2FA006AC65A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53805E4E280DB2FA006AC65A /* AppDelegate.swift */; };
 		53805E51280DB2FA006AC65A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53805E50280DB2FA006AC65A /* SceneDelegate.swift */; };
 		53805E53280DB2FA006AC65A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53805E52280DB2FA006AC65A /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53097F70283783110053B9EF /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		53805E4B280DB2FA006AC65A /* mini-market.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mini-market.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53805E4E280DB2FA006AC65A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53805E50280DB2FA006AC65A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				53805E6A2816F4B6006AC65A /* Model */,
 				53805E4E280DB2FA006AC65A /* AppDelegate.swift */,
+				53097F70283783110053B9EF /* Network.swift */,
 				53805E50280DB2FA006AC65A /* SceneDelegate.swift */,
 				53805E52280DB2FA006AC65A /* ViewController.swift */,
 				53805E54280DB2FA006AC65A /* Main.storyboard */,
@@ -154,6 +157,7 @@
 			files = (
 				53805E692816F474006AC65A /* ProductPage.swift in Sources */,
 				53805E53280DB2FA006AC65A /* ViewController.swift in Sources */,
+				53097F71283783110053B9EF /* Network.swift in Sources */,
 				53805E672816F02B006AC65A /* Product.swift in Sources */,
 				53805E4F280DB2FA006AC65A /* AppDelegate.swift in Sources */,
 				53805E51280DB2FA006AC65A /* SceneDelegate.swift in Sources */,
