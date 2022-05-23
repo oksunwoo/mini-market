@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         checkAPIData()
+        request()
     }
     
     func checkAPIData() {
@@ -22,6 +23,18 @@ class ViewController: UIViewController {
             case .success(let data):
                 let result = String(data: data, encoding: .utf8)
                 print(result)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func request() {
+        api.requestProduct(id: 224) { result in
+            switch result {
+            case .success(let data):
+                let product = try? JSONParser<Product>().decode(from: data).get()
+                print(product?.name)
             case .failure(let error):
                 print(error)
             }
