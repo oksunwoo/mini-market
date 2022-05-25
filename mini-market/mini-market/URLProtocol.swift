@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol URLProtocol {
+    var baseURL: String { get }
+}
