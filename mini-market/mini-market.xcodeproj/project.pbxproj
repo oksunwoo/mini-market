@@ -83,11 +83,10 @@
 		53805E4D280DB2FA006AC65A /* mini-market */ = {
 			isa = PBXGroup;
 			children = (
+				53A65DCE2849192700D0DE1B /* Protocol */,
 				53097F7428378C640053B9EF /* Error */,
 				53805E6A2816F4B6006AC65A /* Model */,
 				53805E4E280DB2FA006AC65A /* AppDelegate.swift */,
-				53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */,
-				53A65DCC284907D700D0DE1B /* APIProtocol.swift */,
 				53097F70283783110053B9EF /* APIService.swift */,
 				53805E50280DB2FA006AC65A /* SceneDelegate.swift */,
 				53805E52280DB2FA006AC65A /* ViewController.swift */,
@@ -108,6 +107,15 @@
 				53A65D7B283E059700D0DE1B /* MarketURL.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		53A65DCE2849192700D0DE1B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				53A65DCC284907D700D0DE1B /* APIProtocol.swift */,
+				53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
