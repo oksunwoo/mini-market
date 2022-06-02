@@ -26,13 +26,7 @@ struct ProductDetailAPI: APIProtocol {
 }
 
 class APIService {
-    func getData(completion: @escaping (Result<Data, Error>) -> Void) {
-        guard let url = HealthCheckerAPI().url else {
-            completion(.failure(NetworkError.urlIsNil))
-            return
-        }
-        
-        let request = URLRequest(url: url)
+    private func loadData(request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil else {
                 completion(.failure(NetworkError.requestError))
@@ -55,33 +49,14 @@ class APIService {
         task.resume()
     }
     
-    func requestProduct(id: Int, completion: @escaping (Result<Data, Error>) -> Void) {
-        guard let url = ProductDetailAPI(id: id).url else {
+    func request(api: APIProtocol ,completion: @escaping (Result<Data, Error>) -> Void) {
+        guard let url = api.url else {
             completion(.failure(NetworkError.urlIsNil))
             return
         }
         
         let request = URLRequest(url: url)
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard error == nil else {
-                completion(.failure(NetworkError.requestError))
-                return
-            }
-            
-            guard let httpResponse = response as? HTTPURLResponse, (200..<300).contains(httpResponse.statusCode) else {
-                completion(.failure(NetworkError.statusCodeError))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(NetworkError.unknownError))
-                return
-            }
-            
-            completion(.success(data))
-        }
-        task.resume()
+        loadData(request: request, completion: completion)
     }
     
 }

@@ -14,11 +14,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         checkAPIData()
-        request()
     }
     
     func checkAPIData() {
-        api.getData { result in
+        api.request(api: HealthCheckerAPI()) { result in
             switch result {
             case .success(let data):
                 let result = String(data: data, encoding: .utf8)
@@ -28,18 +27,4 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    func request() {
-        api.requestProduct(id: 224) { result in
-            switch result {
-            case .success(let data):
-                let product = try? JSONParser<Product>().decode(from: data).get()
-                print(product?.name)
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-
 }
-
