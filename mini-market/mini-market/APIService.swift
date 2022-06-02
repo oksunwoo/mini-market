@@ -15,6 +15,14 @@ struct HealthCheckerAPI {
     }
 }
 
+struct ProductDetailAPI {
+    var url: URL?
+    
+    init(id: Int, baseURL: URLProtocol = MarketURL()) {
+        self.url = URL(string: "\(baseURL.baseURL)" + "api/products/"+"\(id)")
+    }
+}
+
 class APIService {
     func getData(completion: @escaping (Result<Data, Error>) -> Void) {
         guard let url = HealthCheckerAPI().url else {
@@ -23,7 +31,6 @@ class APIService {
         }
         
         let request = URLRequest(url: url)
-        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil else {
                 completion(.failure(NetworkError.requestError))
@@ -47,7 +54,7 @@ class APIService {
     }
     
     func requestProduct(id: Int, completion: @escaping (Result<Data, Error>) -> Void) {
-        guard let url = URL(string: "https://market-training.yagom-academy.kr/api/products/" + "\(id)") else {
+        guard let url = ProductDetailAPI(id: id).url else {
             completion(.failure(NetworkError.urlIsNil))
             return
         }
