@@ -8,12 +8,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    let api = APIService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        checkAPIData()
     }
-
-
+    
+    func checkAPIData() {
+        api.request(api: HealthCheckerAPI()) { result in
+            switch result {
+            case .success(let data):
+                let result = String(data: data, encoding: .utf8)
+                print(result)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
-

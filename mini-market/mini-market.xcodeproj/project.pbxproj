@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53097F71283783110053B9EF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53097F70283783110053B9EF /* APIService.swift */; };
+		53097F7328378C550053B9EF /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53097F7228378C550053B9EF /* NetworkError.swift */; };
+		53097F76283A59560053B9EF /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53097F75283A59560053B9EF /* JSONParser.swift */; };
+		53097F78283A5E570053B9EF /* JSONParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53097F77283A5E570053B9EF /* JSONParseError.swift */; };
 		53805E4F280DB2FA006AC65A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53805E4E280DB2FA006AC65A /* AppDelegate.swift */; };
 		53805E51280DB2FA006AC65A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53805E50280DB2FA006AC65A /* SceneDelegate.swift */; };
 		53805E53280DB2FA006AC65A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53805E52280DB2FA006AC65A /* ViewController.swift */; };
@@ -15,9 +19,16 @@
 		53805E5B280DB2FC006AC65A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53805E59280DB2FC006AC65A /* LaunchScreen.storyboard */; };
 		53805E672816F02B006AC65A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53805E662816F02B006AC65A /* Product.swift */; };
 		53805E692816F474006AC65A /* ProductPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53805E682816F474006AC65A /* ProductPage.swift */; };
+		53A65D7C283E059700D0DE1B /* MarketURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65D7B283E059700D0DE1B /* MarketURL.swift */; };
+		53A65D7E283E05CE00D0DE1B /* URLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */; };
+		53A65DCD284907D800D0DE1B /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65DCC284907D700D0DE1B /* APIProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53097F70283783110053B9EF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		53097F7228378C550053B9EF /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		53097F75283A59560053B9EF /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		53097F77283A5E570053B9EF /* JSONParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParseError.swift; sourceTree = "<group>"; };
 		53805E4B280DB2FA006AC65A /* mini-market.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mini-market.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53805E4E280DB2FA006AC65A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53805E50280DB2FA006AC65A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +39,9 @@
 		53805E5C280DB2FC006AC65A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53805E662816F02B006AC65A /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		53805E682816F474006AC65A /* ProductPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPage.swift; sourceTree = "<group>"; };
+		53A65D7B283E059700D0DE1B /* MarketURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketURL.swift; sourceTree = "<group>"; };
+		53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocol.swift; sourceTree = "<group>"; };
+		53A65DCC284907D700D0DE1B /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53097F7428378C640053B9EF /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				53097F7228378C550053B9EF /* NetworkError.swift */,
+				53097F77283A5E570053B9EF /* JSONParseError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		53805E42280DB2FA006AC65A = {
 			isa = PBXGroup;
 			children = (
@@ -60,8 +83,11 @@
 		53805E4D280DB2FA006AC65A /* mini-market */ = {
 			isa = PBXGroup;
 			children = (
+				53A65DCE2849192700D0DE1B /* Protocol */,
+				53097F7428378C640053B9EF /* Error */,
 				53805E6A2816F4B6006AC65A /* Model */,
 				53805E4E280DB2FA006AC65A /* AppDelegate.swift */,
+				53097F70283783110053B9EF /* APIService.swift */,
 				53805E50280DB2FA006AC65A /* SceneDelegate.swift */,
 				53805E52280DB2FA006AC65A /* ViewController.swift */,
 				53805E54280DB2FA006AC65A /* Main.storyboard */,
@@ -77,8 +103,19 @@
 			children = (
 				53805E662816F02B006AC65A /* Product.swift */,
 				53805E682816F474006AC65A /* ProductPage.swift */,
+				53097F75283A59560053B9EF /* JSONParser.swift */,
+				53A65D7B283E059700D0DE1B /* MarketURL.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		53A65DCE2849192700D0DE1B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				53A65DCC284907D700D0DE1B /* APIProtocol.swift */,
+				53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,10 +190,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				53805E692816F474006AC65A /* ProductPage.swift in Sources */,
+				53A65D7E283E05CE00D0DE1B /* URLProtocol.swift in Sources */,
+				53097F7328378C550053B9EF /* NetworkError.swift in Sources */,
 				53805E53280DB2FA006AC65A /* ViewController.swift in Sources */,
+				53A65DCD284907D800D0DE1B /* APIProtocol.swift in Sources */,
+				53097F71283783110053B9EF /* APIService.swift in Sources */,
+				53097F76283A59560053B9EF /* JSONParser.swift in Sources */,
+				53A65D7C283E059700D0DE1B /* MarketURL.swift in Sources */,
 				53805E672816F02B006AC65A /* Product.swift in Sources */,
 				53805E4F280DB2FA006AC65A /* AppDelegate.swift in Sources */,
 				53805E51280DB2FA006AC65A /* SceneDelegate.swift in Sources */,
+				53097F78283A5E570053B9EF /* JSONParseError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +349,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 79WK37N5M5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "mini-market/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -332,6 +377,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 79WK37N5M5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "mini-market/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
