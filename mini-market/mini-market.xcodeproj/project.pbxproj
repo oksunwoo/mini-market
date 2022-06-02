@@ -21,6 +21,7 @@
 		53805E692816F474006AC65A /* ProductPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53805E682816F474006AC65A /* ProductPage.swift */; };
 		53A65D7C283E059700D0DE1B /* MarketURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65D7B283E059700D0DE1B /* MarketURL.swift */; };
 		53A65D7E283E05CE00D0DE1B /* URLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */; };
+		53A65DCD284907D800D0DE1B /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65DCC284907D700D0DE1B /* APIProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		53805E682816F474006AC65A /* ProductPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPage.swift; sourceTree = "<group>"; };
 		53A65D7B283E059700D0DE1B /* MarketURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketURL.swift; sourceTree = "<group>"; };
 		53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocol.swift; sourceTree = "<group>"; };
+		53A65DCC284907D700D0DE1B /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				53805E6A2816F4B6006AC65A /* Model */,
 				53805E4E280DB2FA006AC65A /* AppDelegate.swift */,
 				53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */,
+				53A65DCC284907D700D0DE1B /* APIProtocol.swift */,
 				53097F70283783110053B9EF /* APIService.swift */,
 				53805E50280DB2FA006AC65A /* SceneDelegate.swift */,
 				53805E52280DB2FA006AC65A /* ViewController.swift */,
@@ -182,6 +185,7 @@
 				53A65D7E283E05CE00D0DE1B /* URLProtocol.swift in Sources */,
 				53097F7328378C550053B9EF /* NetworkError.swift in Sources */,
 				53805E53280DB2FA006AC65A /* ViewController.swift in Sources */,
+				53A65DCD284907D800D0DE1B /* APIProtocol.swift in Sources */,
 				53097F71283783110053B9EF /* APIService.swift in Sources */,
 				53097F76283A59560053B9EF /* JSONParser.swift in Sources */,
 				53A65D7C283E059700D0DE1B /* MarketURL.swift in Sources */,

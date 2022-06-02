@@ -7,16 +7,18 @@
 
 import Foundation
 
-struct HealthCheckerAPI {
+struct HealthCheckerAPI: APIProtocol {
     var url: URL?
+    var method: HttpMethod = .get
     
     init(baseURL: URLProtocol = MarketURL()) {
         self.url = URL(string: "\(baseURL.baseURL)" + "healthChecker")
     }
 }
 
-struct ProductDetailAPI {
+struct ProductDetailAPI: APIProtocol {
     var url: URL?
+    var method: HttpMethod = .get
     
     init(id: Int, baseURL: URLProtocol = MarketURL()) {
         self.url = URL(string: "\(baseURL.baseURL)" + "api/products/"+"\(id)")
