@@ -7,33 +7,6 @@
 
 import Foundation
 
-struct HealthCheckerAPI: APIProtocol {
-    var url: URL?
-    var method: HttpMethod = .get
-    
-    init(baseURL: URLProtocol = MarketURL()) {
-        self.url = URL(string: "\(baseURL.baseURL)" + "healthChecker")
-    }
-}
-
-struct ProductDetailAPI: APIProtocol {
-    var url: URL?
-    var method: HttpMethod = .get
-    
-    init(id: Int, baseURL: URLProtocol = MarketURL()) {
-        self.url = URL(string: "\(baseURL.baseURL)" + "api/products/"+"\(id)")
-    }
-}
-
-struct ProductListAPI: APIProtocol {
-    var url: URL?
-    var method: HttpMethod = .get
-    
-    init(pageNumber: Int, itemsPerPage: Int, baseURL: URLProtocol = MarketURL()) {
-        self.url = URL(string: "\(baseURL.baseURL)" + "api/products/?page_no=" + "\(pageNumber)" + "&items_per_page=" + "\(itemsPerPage)")
-    }
-}
-
 class APIService {
     private func loadData(request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
