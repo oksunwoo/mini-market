@@ -74,7 +74,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ls8-Kb-L9j">
-                        <barButtonItem key="rightBarButtonItem" title="+" id="emQ-18-7IP"/>
+                        <barButtonItem key="rightBarButtonItem" title="+" id="emQ-18-7IP">
+                            <connections>
+                                <action selector="btn:" destination="BYZ-38-t0r" id="tCl-1b-c7n"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="f2x-P7-aYT" id="pG1-Np-IkV"/>

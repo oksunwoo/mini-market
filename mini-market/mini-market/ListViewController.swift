@@ -25,6 +25,9 @@ class ListViewController: UIViewController {
     private func setProducts() {
         APIService().fetchData(api: ProductListAPI(pageNumber: 1, itemsPerPage: 100), decodingType: ProductPage.self) { data in
             self.products = data.products
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 }
@@ -51,7 +54,7 @@ extension ListViewController: UITableViewDataSource {
         
         cell.updateView(with: product)
         
-        return UITableViewCell()
+        return cell
     }
     
 }
