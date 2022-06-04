@@ -37,11 +37,21 @@ extension ListViewController: UITableViewDelegate {
 //MARK: - UITableViewDataSource
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return products?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as? ListTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        guard let product = products?[indexPath.row] else {
+            return UITableViewCell()
+        }
+        
+        cell.updateView(with: product)
+        
+        return UITableViewCell()
     }
     
 }

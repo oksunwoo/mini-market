@@ -22,6 +22,7 @@
 		53A65D7C283E059700D0DE1B /* MarketURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65D7B283E059700D0DE1B /* MarketURL.swift */; };
 		53A65D7E283E05CE00D0DE1B /* URLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */; };
 		53A65DCD284907D800D0DE1B /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65DCC284907D700D0DE1B /* APIProtocol.swift */; };
+		53D68900284B9B5000649C9A /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D688FF284B9B5000649C9A /* ListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		53A65D7B283E059700D0DE1B /* MarketURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketURL.swift; sourceTree = "<group>"; };
 		53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocol.swift; sourceTree = "<group>"; };
 		53A65DCC284907D700D0DE1B /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
+		53D688FF284B9B5000649C9A /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				53097F70283783110053B9EF /* APIService.swift */,
 				53805E50280DB2FA006AC65A /* SceneDelegate.swift */,
 				53805E52280DB2FA006AC65A /* ListViewController.swift */,
+				53D688FF284B9B5000649C9A /* ListTableViewCell.swift */,
 				53805E54280DB2FA006AC65A /* Main.storyboard */,
 				53805E57280DB2FC006AC65A /* Assets.xcassets */,
 				53805E59280DB2FC006AC65A /* LaunchScreen.storyboard */,
@@ -200,6 +203,7 @@
 				53805E672816F02B006AC65A /* Product.swift in Sources */,
 				53805E4F280DB2FA006AC65A /* AppDelegate.swift in Sources */,
 				53805E51280DB2FA006AC65A /* SceneDelegate.swift in Sources */,
+				53D68900284B9B5000649C9A /* ListTableViewCell.swift in Sources */,
 				53097F78283A5E570053B9EF /* JSONParseError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
