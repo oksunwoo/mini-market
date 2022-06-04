@@ -41,7 +41,7 @@ class APIService {
         loadData(request: request, completion: completion)
     }
     
-    func fetchData<T: Codable>(api: APIProtocol, decodingType: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+    func fetchData<T: Codable>(api: APIProtocol, decodingType: T.Type, completion: @escaping (_ data: T) -> Void) {
         request(api: api) { result in
             switch result {
             case .success(let data):
@@ -49,12 +49,12 @@ class APIService {
                 
                 switch decodeData {
                 case .success(let decodedData):
-                    completion(.success(decodedData))
-                case .failure(_):
-                    completion(.failure(JSONParseError.decodingFail))
+                    completion(decodedData)
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
-            case .failure(_):
-                completion(.failure(NetworkError.unknownError))
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }

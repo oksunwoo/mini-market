@@ -10,14 +10,23 @@ import UIKit
 class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    var products: [Product]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-
+        
+        
+        setProducts()
     }
     
+    private func setProducts() {
+        APIService().fetchData(api: ProductListAPI(pageNumber: 1, itemsPerPage: 100), decodingType: ProductPage.self) { data in
+            self.products = data.products
+        }
+    }
 }
 
 //MARK: - UITableViewDelegate
