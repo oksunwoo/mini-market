@@ -34,7 +34,9 @@ class ListViewController: UIViewController {
 
 //MARK: - UITableViewDelegate
 extension ListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(70.0)
+    }
 }
 
 //MARK: - UITableViewDataSource
