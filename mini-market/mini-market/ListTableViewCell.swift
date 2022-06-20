@@ -47,8 +47,8 @@ class ListTableViewCell: UITableViewCell {
         if stock == 0 {
             productStockLabel.text = "품절"
             productStockLabel.textColor = .systemRed
-        } else if stock >= 100000 {
-            productStockLabel.text = "수량 : 10만 ↑"
+        } else if stock >= 10000 {
+            productStockLabel.text = "수량 : 1만↑"
         } else {
             productStockLabel.text = "수량 : " + format(number: stock)
         }
