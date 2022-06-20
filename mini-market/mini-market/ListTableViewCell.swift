@@ -31,7 +31,7 @@ class ListTableViewCell: UITableViewCell {
     func updateView(with data: Product) {
         loadImage(url: data.thumbnail)
         productNameLabel.text = data.name
-        productPriceLabel.text = String(data.currency.rawValue) + " " + String(data.bargainPrice)
+        productPriceLabel.text = String(data.currency.rawValue) + " " + format(number: data.bargainPrice)
         updateStockLabel(by: data.stock)
     }
 
@@ -47,8 +47,17 @@ class ListTableViewCell: UITableViewCell {
         if stock == 0 {
             productStockLabel.text = "품절"
             productStockLabel.textColor = .systemRed
+        } else if stock >= 100000 {
+            productStockLabel.text = "수량 : 10만 ↑"
         } else {
-            productStockLabel.text = "수량 : \(stock)"
+            productStockLabel.text = "수량 : " + format(number: stock)
         }
+    }
+    
+    private func format(number: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        return numberFormatter.string(for: number) ?? ""
     }
 }
