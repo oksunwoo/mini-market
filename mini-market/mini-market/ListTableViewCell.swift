@@ -15,7 +15,6 @@ class ListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,8 +26,8 @@ class ListTableViewCell: UITableViewCell {
     func updateView(with data: Product) {
         loadImage(url: data.thumbnail)
         productNameLabel.text = data.name
-        productPriceLabel.text = String(data.bargainPrice)
-        productStockLabel.text = String(data.stock)
+        productPriceLabel.text = String(data.currency.rawValue) + " " + String(data.bargainPrice)
+        updateStockLabel(by: data.stock)
     }
 
     private func loadImage(url: String) {
@@ -39,4 +38,12 @@ class ListTableViewCell: UITableViewCell {
         productImageView.image = loadedImage
     }
     
+    private func updateStockLabel(by stock: Int) {
+        if stock == 0 {
+            productStockLabel.text = "품절"
+            productStockLabel.textColor = .systemRed
+        } else {
+            productStockLabel.text = "수량 : \(stock)"
+        }
+    }
 }

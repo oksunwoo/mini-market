@@ -23,6 +23,7 @@
 		53A65D7E283E05CE00D0DE1B /* URLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */; };
 		53A65DCD284907D800D0DE1B /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65DCC284907D700D0DE1B /* APIProtocol.swift */; };
 		53D68900284B9B5000649C9A /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D688FF284B9B5000649C9A /* ListTableViewCell.swift */; };
+		53FB696A2860585A00956157 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB69692860585A00956157 /* Currency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocol.swift; sourceTree = "<group>"; };
 		53A65DCC284907D700D0DE1B /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		53D688FF284B9B5000649C9A /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		53FB69692860585A00956157 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			children = (
 				53805E662816F02B006AC65A /* Product.swift */,
 				53805E682816F474006AC65A /* ProductPage.swift */,
+				53FB69692860585A00956157 /* Currency.swift */,
 				53097F75283A59560053B9EF /* JSONParser.swift */,
 				53A65D7B283E059700D0DE1B /* MarketURL.swift */,
 			);
@@ -204,6 +207,7 @@
 				53805E4F280DB2FA006AC65A /* AppDelegate.swift in Sources */,
 				53805E51280DB2FA006AC65A /* SceneDelegate.swift in Sources */,
 				53D68900284B9B5000649C9A /* ListTableViewCell.swift in Sources */,
+				53FB696A2860585A00956157 /* Currency.swift in Sources */,
 				53097F78283A5E570053B9EF /* JSONParseError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
