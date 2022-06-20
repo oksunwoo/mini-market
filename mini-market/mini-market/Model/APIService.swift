@@ -41,4 +41,21 @@ class APIService {
         loadData(request: request, completion: completion)
     }
     
+    func fetchData<T: Codable>(api: APIProtocol, decodingType: T.Type, completion: @escaping (_ data: T) -> Void) {
+        request(api: api) { result in
+            switch result {
+            case .success(let data):
+                let decodeData = JSONParser<T>().decode(from: data)
+                
+                switch decodeData {
+                case .success(let decodedData):
+                    completion(decodedData)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

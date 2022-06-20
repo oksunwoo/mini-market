@@ -13,7 +13,7 @@
 		53097F78283A5E570053B9EF /* JSONParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53097F77283A5E570053B9EF /* JSONParseError.swift */; };
 		53805E4F280DB2FA006AC65A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53805E4E280DB2FA006AC65A /* AppDelegate.swift */; };
 		53805E51280DB2FA006AC65A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53805E50280DB2FA006AC65A /* SceneDelegate.swift */; };
-		53805E53280DB2FA006AC65A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53805E52280DB2FA006AC65A /* ViewController.swift */; };
+		53805E53280DB2FA006AC65A /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53805E52280DB2FA006AC65A /* ListViewController.swift */; };
 		53805E56280DB2FA006AC65A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53805E54280DB2FA006AC65A /* Main.storyboard */; };
 		53805E58280DB2FC006AC65A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53805E57280DB2FC006AC65A /* Assets.xcassets */; };
 		53805E5B280DB2FC006AC65A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53805E59280DB2FC006AC65A /* LaunchScreen.storyboard */; };
@@ -22,6 +22,10 @@
 		53A65D7C283E059700D0DE1B /* MarketURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65D7B283E059700D0DE1B /* MarketURL.swift */; };
 		53A65D7E283E05CE00D0DE1B /* URLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */; };
 		53A65DCD284907D800D0DE1B /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65DCC284907D700D0DE1B /* APIProtocol.swift */; };
+		53D68900284B9B5000649C9A /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D688FF284B9B5000649C9A /* ListTableViewCell.swift */; };
+		53FB696A2860585A00956157 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB69692860585A00956157 /* Currency.swift */; };
+		53FB696C286080F200956157 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB696B286080F200956157 /* ImageCacheManager.swift */; };
+		53FB696E286081F700956157 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB696D286081F700956157 /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +36,7 @@
 		53805E4B280DB2FA006AC65A /* mini-market.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mini-market.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53805E4E280DB2FA006AC65A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53805E50280DB2FA006AC65A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		53805E52280DB2FA006AC65A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		53805E52280DB2FA006AC65A /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		53805E55280DB2FA006AC65A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		53805E57280DB2FC006AC65A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53805E5A280DB2FC006AC65A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +46,10 @@
 		53A65D7B283E059700D0DE1B /* MarketURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketURL.swift; sourceTree = "<group>"; };
 		53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocol.swift; sourceTree = "<group>"; };
 		53A65DCC284907D700D0DE1B /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
+		53D688FF284B9B5000649C9A /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		53FB69692860585A00956157 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		53FB696B286080F200956157 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		53FB696D286081F700956157 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,11 +93,12 @@
 			children = (
 				53A65DCE2849192700D0DE1B /* Protocol */,
 				53097F7428378C640053B9EF /* Error */,
+				53FB697028608A9700956157 /* Controller */,
 				53805E6A2816F4B6006AC65A /* Model */,
+				53FB696F28608A5200956157 /* Extension */,
+				53FB697128608AC800956157 /* View */,
 				53805E4E280DB2FA006AC65A /* AppDelegate.swift */,
-				53097F70283783110053B9EF /* APIService.swift */,
 				53805E50280DB2FA006AC65A /* SceneDelegate.swift */,
-				53805E52280DB2FA006AC65A /* ViewController.swift */,
 				53805E54280DB2FA006AC65A /* Main.storyboard */,
 				53805E57280DB2FC006AC65A /* Assets.xcassets */,
 				53805E59280DB2FC006AC65A /* LaunchScreen.storyboard */,
@@ -103,8 +112,11 @@
 			children = (
 				53805E662816F02B006AC65A /* Product.swift */,
 				53805E682816F474006AC65A /* ProductPage.swift */,
+				53FB69692860585A00956157 /* Currency.swift */,
 				53097F75283A59560053B9EF /* JSONParser.swift */,
 				53A65D7B283E059700D0DE1B /* MarketURL.swift */,
+				53097F70283783110053B9EF /* APIService.swift */,
+				53FB696B286080F200956157 /* ImageCacheManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,6 +128,30 @@
 				53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		53FB696F28608A5200956157 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				53FB696D286081F700956157 /* UIImageView+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		53FB697028608A9700956157 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				53805E52280DB2FA006AC65A /* ListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		53FB697128608AC800956157 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				53D688FF284B9B5000649C9A /* ListTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,15 +227,19 @@
 			files = (
 				53805E692816F474006AC65A /* ProductPage.swift in Sources */,
 				53A65D7E283E05CE00D0DE1B /* URLProtocol.swift in Sources */,
+				53FB696C286080F200956157 /* ImageCacheManager.swift in Sources */,
 				53097F7328378C550053B9EF /* NetworkError.swift in Sources */,
-				53805E53280DB2FA006AC65A /* ViewController.swift in Sources */,
+				53805E53280DB2FA006AC65A /* ListViewController.swift in Sources */,
 				53A65DCD284907D800D0DE1B /* APIProtocol.swift in Sources */,
 				53097F71283783110053B9EF /* APIService.swift in Sources */,
 				53097F76283A59560053B9EF /* JSONParser.swift in Sources */,
 				53A65D7C283E059700D0DE1B /* MarketURL.swift in Sources */,
 				53805E672816F02B006AC65A /* Product.swift in Sources */,
+				53FB696E286081F700956157 /* UIImageView+Extension.swift in Sources */,
 				53805E4F280DB2FA006AC65A /* AppDelegate.swift in Sources */,
 				53805E51280DB2FA006AC65A /* SceneDelegate.swift in Sources */,
+				53D68900284B9B5000649C9A /* ListTableViewCell.swift in Sources */,
+				53FB696A2860585A00956157 /* Currency.swift in Sources */,
 				53097F78283A5E570053B9EF /* JSONParseError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

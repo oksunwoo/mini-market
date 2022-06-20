@@ -22,6 +22,4 @@ struct JSONParser<Item: Codable> {
         
         return .success(decodedData)
     }
-    
-    
 }
