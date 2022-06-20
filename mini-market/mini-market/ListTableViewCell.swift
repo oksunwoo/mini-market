@@ -29,18 +29,10 @@ class ListTableViewCell: UITableViewCell {
     }
     
     func updateView(with data: Product) {
-        loadImage(url: data.thumbnail)
+        productImageView.loadImage(url: data.thumbnail)
         productNameLabel.text = data.name
         productPriceLabel.text = String(data.currency.rawValue) + " " + format(number: data.bargainPrice)
         updateStockLabel(by: data.stock)
-    }
-
-    private func loadImage(url: String) {
-        guard let imageURL = URL(string: url), let imageData = try? Data(contentsOf: imageURL), let loadedImage = UIImage(data: imageData) else {
-            return
-        }
-        
-        productImageView.image = loadedImage
     }
     
     private func updateStockLabel(by stock: Int) {

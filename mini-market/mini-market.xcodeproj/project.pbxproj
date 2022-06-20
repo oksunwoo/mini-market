@@ -24,6 +24,8 @@
 		53A65DCD284907D800D0DE1B /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65DCC284907D700D0DE1B /* APIProtocol.swift */; };
 		53D68900284B9B5000649C9A /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D688FF284B9B5000649C9A /* ListTableViewCell.swift */; };
 		53FB696A2860585A00956157 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB69692860585A00956157 /* Currency.swift */; };
+		53FB696C286080F200956157 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB696B286080F200956157 /* ImageCacheManager.swift */; };
+		53FB696E286081F700956157 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB696D286081F700956157 /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		53A65DCC284907D700D0DE1B /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		53D688FF284B9B5000649C9A /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		53FB69692860585A00956157 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		53FB696B286080F200956157 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		53FB696D286081F700956157 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +95,9 @@
 				53097F7428378C640053B9EF /* Error */,
 				53805E6A2816F4B6006AC65A /* Model */,
 				53805E4E280DB2FA006AC65A /* AppDelegate.swift */,
+				53FB696D286081F700956157 /* UIImageView+Extension.swift */,
 				53097F70283783110053B9EF /* APIService.swift */,
+				53FB696B286080F200956157 /* ImageCacheManager.swift */,
 				53805E50280DB2FA006AC65A /* SceneDelegate.swift */,
 				53805E52280DB2FA006AC65A /* ListViewController.swift */,
 				53D688FF284B9B5000649C9A /* ListTableViewCell.swift */,
@@ -197,6 +203,7 @@
 			files = (
 				53805E692816F474006AC65A /* ProductPage.swift in Sources */,
 				53A65D7E283E05CE00D0DE1B /* URLProtocol.swift in Sources */,
+				53FB696C286080F200956157 /* ImageCacheManager.swift in Sources */,
 				53097F7328378C550053B9EF /* NetworkError.swift in Sources */,
 				53805E53280DB2FA006AC65A /* ListViewController.swift in Sources */,
 				53A65DCD284907D800D0DE1B /* APIProtocol.swift in Sources */,
@@ -204,6 +211,7 @@
 				53097F76283A59560053B9EF /* JSONParser.swift in Sources */,
 				53A65D7C283E059700D0DE1B /* MarketURL.swift in Sources */,
 				53805E672816F02B006AC65A /* Product.swift in Sources */,
+				53FB696E286081F700956157 /* UIImageView+Extension.swift in Sources */,
 				53805E4F280DB2FA006AC65A /* AppDelegate.swift in Sources */,
 				53805E51280DB2FA006AC65A /* SceneDelegate.swift in Sources */,
 				53D68900284B9B5000649C9A /* ListTableViewCell.swift in Sources */,
