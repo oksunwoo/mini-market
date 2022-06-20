@@ -23,6 +23,11 @@ class ListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func prepareForReuse() {
+        productImageView.image = nil
+        productStockLabel.textColor = .systemGray
+    }
+    
     func updateView(with data: Product) {
         loadImage(url: data.thumbnail)
         productNameLabel.text = data.name
