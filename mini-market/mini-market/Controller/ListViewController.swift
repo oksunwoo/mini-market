@@ -59,4 +59,13 @@ extension ListViewController: UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailStoryboard = UIStoryboard(name: "DetailView", bundle: nil)
+        let detailViewController = detailStoryboard.instantiateViewController(identifier: "DetailViewController") { coder in
+            return DetailViewController(coder: coder, product: self.products?[indexPath.row])
+        }
+        
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
+    
 }

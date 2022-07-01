@@ -50,9 +50,8 @@
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9K-xV-ain">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9K-xV-ain">
                                                     <rect key="frame" x="387" y="27" width="11" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -63,6 +62,7 @@
                                                 <constraint firstItem="C78-BX-sMd" firstAttribute="leading" secondItem="swy-PX-W5z" secondAttribute="leading" id="AUj-SZ-OT7"/>
                                                 <constraint firstAttribute="bottom" secondItem="itb-Sh-qhw" secondAttribute="bottom" constant="10" id="FSJ-oB-RPS"/>
                                                 <constraint firstItem="itb-Sh-qhw" firstAttribute="leading" secondItem="kdy-Ay-EvR" secondAttribute="leading" constant="20" id="H3c-hH-thB"/>
+                                                <constraint firstItem="d9K-xV-ain" firstAttribute="centerY" secondItem="kdy-Ay-EvR" secondAttribute="centerY" id="HEl-eK-pGP"/>
                                                 <constraint firstItem="DsT-eq-Uma" firstAttribute="leading" secondItem="kdy-Ay-EvR" secondAttribute="trailingMargin" constant="-90" id="JRI-mH-CnL"/>
                                                 <constraint firstItem="swy-PX-W5z" firstAttribute="top" secondItem="itb-Sh-qhw" secondAttribute="top" id="LLT-Zg-uGC"/>
                                                 <constraint firstItem="itb-Sh-qhw" firstAttribute="top" secondItem="kdy-Ay-EvR" secondAttribute="top" constant="10" id="NjN-om-8lY"/>
@@ -92,11 +92,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ls8-Kb-L9j">
-                        <barButtonItem key="rightBarButtonItem" title="+" id="emQ-18-7IP">
-                            <connections>
-                                <action selector="btn:" destination="BYZ-38-t0r" id="tCl-1b-c7n"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="+" id="emQ-18-7IP"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="f2x-P7-aYT" id="pG1-Np-IkV"/>
