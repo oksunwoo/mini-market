@@ -30,6 +30,14 @@ class ListViewController: UIViewController {
             }
         }
     }
+    
+    //MARK: - IBAction
+    @IBAction func productAddButton(_ sender: UIBarButtonItem) {
+        let addStoryboard = UIStoryboard(name: "AddAndEditView", bundle: nil)
+        let addViewController = addStoryboard.instantiateViewController(withIdentifier: "AddAndEditViewController")
+        
+        present(addViewController, animated: true, completion: nil)
+    }
 }
 
 //MARK: - UITableViewDelegate
