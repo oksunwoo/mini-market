@@ -11,12 +11,41 @@
         <!--Add And Edit View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="AddAndEditViewController1" id="Y6W-OH-hqX" customClass="AddAndEditViewController" customModule="mini_market" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="AddAndEditViewController" customModule="mini_market" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qco-UE-bCx">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVv-NY-2Hu">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="250" constant="774" id="uJ6-pJ-Iab"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="bVv-NY-2Hu" firstAttribute="leading" secondItem="Gje-0P-Deo" secondAttribute="leading" id="F59-CC-XPV"/>
+                                    <constraint firstItem="bVv-NY-2Hu" firstAttribute="bottom" secondItem="Gje-0P-Deo" secondAttribute="bottom" id="SiZ-Bu-1vK"/>
+                                    <constraint firstItem="bVv-NY-2Hu" firstAttribute="width" secondItem="dsq-tJ-6YO" secondAttribute="width" id="mlD-9K-IzI"/>
+                                    <constraint firstItem="bVv-NY-2Hu" firstAttribute="trailing" secondItem="Gje-0P-Deo" secondAttribute="trailing" id="rce-D8-cmF"/>
+                                    <constraint firstItem="bVv-NY-2Hu" firstAttribute="top" secondItem="Gje-0P-Deo" secondAttribute="top" id="tc4-BY-Jd0"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Gje-0P-Deo"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="dsq-tJ-6YO"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qco-UE-bCx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="A6d-DZ-yQ4"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qco-UE-bCx" secondAttribute="trailing" id="ZmU-1L-nyD"/>
+                            <constraint firstItem="qco-UE-bCx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ige-C2-5J8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="qco-UE-bCx" secondAttribute="bottom" id="sch-VM-3Re"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="38X-IM-Mid">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="EF7-XR-jId">
@@ -34,7 +63,7 @@
         <!--Navigation Controller-->
         <scene sceneID="8Me-bK-hLg">
             <objects>
-                <navigationController storyboardIdentifier="AddAndEditViewController" automaticallyAdjustsScrollViewInsets="NO" id="rRV-q0-Vum" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AddAndEditNavigation" automaticallyAdjustsScrollViewInsets="NO" id="rRV-q0-Vum" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DDa-SC-tgn">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

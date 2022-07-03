@@ -34,7 +34,7 @@ class ListViewController: UIViewController {
     //MARK: - IBAction
     @IBAction func productAddButton(_ sender: UIBarButtonItem) {
         let addStoryboard = UIStoryboard(name: "AddAndEditView", bundle: nil)
-        let addViewController = addStoryboard.instantiateViewController(withIdentifier: "AddAndEditViewController")
+        let addViewController = addStoryboard.instantiateViewController(withIdentifier: "AddAndEditNavigation")
         addViewController.modalPresentationStyle = .fullScreen
         
         present(addViewController, animated: true, completion: nil)
