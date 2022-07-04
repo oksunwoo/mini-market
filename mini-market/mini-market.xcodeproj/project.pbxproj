@@ -27,6 +27,7 @@
 		53C54298286F3A2200B34E38 /* AddAndEditView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C54297286F3A2200B34E38 /* AddAndEditView.storyboard */; };
 		53C5429A286F3D9C00B34E38 /* AddAndEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C54299286F3D9C00B34E38 /* AddAndEditViewController.swift */; };
 		53D68900284B9B5000649C9A /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D688FF284B9B5000649C9A /* ListTableViewCell.swift */; };
+		53F2DBE02872E54D00380B21 /* AddProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F2DBDF2872E54D00380B21 /* AddProduct.swift */; };
 		53FB696A2860585A00956157 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB69692860585A00956157 /* Currency.swift */; };
 		53FB696C286080F200956157 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB696B286080F200956157 /* ImageCacheManager.swift */; };
 		53FB696E286081F700956157 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB696D286081F700956157 /* UIImageView+Extension.swift */; };
@@ -55,6 +56,7 @@
 		53C54297286F3A2200B34E38 /* AddAndEditView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAndEditView.storyboard; sourceTree = "<group>"; };
 		53C54299286F3D9C00B34E38 /* AddAndEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAndEditViewController.swift; sourceTree = "<group>"; };
 		53D688FF284B9B5000649C9A /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		53F2DBDF2872E54D00380B21 /* AddProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProduct.swift; sourceTree = "<group>"; };
 		53FB69692860585A00956157 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		53FB696B286080F200956157 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		53FB696D286081F700956157 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				53A65D7B283E059700D0DE1B /* MarketURL.swift */,
 				53097F70283783110053B9EF /* APIService.swift */,
 				53FB696B286080F200956157 /* ImageCacheManager.swift */,
+				53F2DBDF2872E54D00380B21 /* AddProduct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				53805E672816F02B006AC65A /* Product.swift in Sources */,
 				53FB696E286081F700956157 /* UIImageView+Extension.swift in Sources */,
 				53805E4F280DB2FA006AC65A /* AppDelegate.swift in Sources */,
+				53F2DBE02872E54D00380B21 /* AddProduct.swift in Sources */,
 				53805E51280DB2FA006AC65A /* SceneDelegate.swift in Sources */,
 				53D68900284B9B5000649C9A /* ListTableViewCell.swift in Sources */,
 				53FB696A2860585A00956157 /* Currency.swift in Sources */,

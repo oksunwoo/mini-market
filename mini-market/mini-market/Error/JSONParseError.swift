@@ -9,4 +9,5 @@ import Foundation
 
 enum JSONParseError: Error {
     case decodingFail
+    case encodingFail
 }

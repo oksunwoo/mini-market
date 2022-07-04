@@ -7,7 +7,7 @@
 
 import Foundation
 
-class APIService {
+struct APIService {
     private func loadData(request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil else {
