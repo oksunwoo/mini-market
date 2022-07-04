@@ -10,8 +10,8 @@ import Foundation
 struct AddProduct: Codable {
     let name: String
     let descriptions: String
-    let price: String
-    let discountedPrice: Int?
+    let price: Double
+    let discountedPrice: Double?
     let currency: Currency
     let stock: Int?
     var secret: String = "t_#_X=&@H=bTT4t+"

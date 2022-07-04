@@ -119,7 +119,11 @@
                                 <action selector="cancelButton:" destination="Y6W-OH-hqX" id="hds-8a-ldg"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="a0y-es-fMf"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="a0y-es-fMf">
+                            <connections>
+                                <action selector="doneButton:" destination="Y6W-OH-hqX" id="NAy-HQ-JQ5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
