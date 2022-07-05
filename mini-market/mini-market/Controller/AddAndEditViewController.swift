@@ -17,18 +17,24 @@ class AddAndEditViewController: UIViewController {
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var currencySegmentedControl: UISegmentedControl!
     
+    private lazy var imagePicker: UIImagePickerController = {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        
+        return imagePicker
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        productImageView.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
     }
     
-    
-    @IBAction func addProductImageButton(_ sender: UIButton) {
-    }
-    
-    
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
+        
     }
     
     
@@ -54,5 +60,21 @@ class AddAndEditViewController: UIViewController {
               }
         
         return AddProduct(name: productName, descriptions: productDescription, price: productPrice, discountedPrice: productDiscountedPrice, currency: productCurrency, stock: productStock)
+    }
+}
+
+extension AddAndEditViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    @IBAction func addProductImageButton(_ sender: UIButton) {
+        self.present(self.imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        self.dismiss(animated: false) {
+            guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+                return
+            }
+            
+            self.productImageView.image = image
+        }
     }
 }
