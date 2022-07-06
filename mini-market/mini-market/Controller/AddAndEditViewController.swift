@@ -8,7 +8,7 @@
 import UIKit
 
 class AddAndEditViewController: UIViewController {
-
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var productNameTextField: UITextField!
     @IBOutlet weak var productPriceTextField: UITextField!
     @IBOutlet weak var productDiscountedPriceTextField: UITextField!
@@ -29,6 +29,7 @@ class AddAndEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setKeyboardObserver()
         setImageView()
         setNavigationTitle()
         // Do any additional setup after loading the view.
@@ -72,6 +73,7 @@ class AddAndEditViewController: UIViewController {
     }
 }
 
+//MARK: - imagePicker
 extension AddAndEditViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     @IBAction func addProductImageButton(_ sender: UIButton) {
         self.present(self.imagePicker, animated: true, completion: nil)
@@ -85,5 +87,32 @@ extension AddAndEditViewController: UIImagePickerControllerDelegate & UINavigati
             
             self.productImageView.image = image
         }
+    }
+}
+
+//MARK: - keyboard
+extension AddAndEditViewController {
+    func setKeyboardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {
+            return
+        }
+        
+        var keyboardFrame = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        let contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardFrame.size.height, right: 0.0)
+        scrollView.contentInset = contentInset
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        let contentInset = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
     }
 }

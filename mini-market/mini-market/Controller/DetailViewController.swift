@@ -8,7 +8,6 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
     var product: Product?
     
     override func viewDidLoad() {

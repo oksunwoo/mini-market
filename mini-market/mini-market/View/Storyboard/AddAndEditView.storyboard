@@ -150,6 +150,7 @@
                         <outlet property="productNameTextField" destination="rF7-hb-ftt" id="A38-ml-AVo"/>
                         <outlet property="productPriceTextField" destination="XzS-Ye-n4u" id="ZSF-6D-dvb"/>
                         <outlet property="productStockTextField" destination="PYv-Av-4PR" id="lqO-GQ-qb6"/>
+                        <outlet property="scrollView" destination="LGG-hq-2h5" id="HkR-9O-IzV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
