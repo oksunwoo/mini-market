@@ -29,7 +29,8 @@ class AddAndEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        productImageView.layer.cornerRadius = 5
+        setImageView()
+        setNavigationTitle()
         // Do any additional setup after loading the view.
     }
     
@@ -40,6 +41,14 @@ class AddAndEditViewController: UIViewController {
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func setNavigationTitle() {
+        navigationItem.title = "상품 등록"
+    }
+    
+    private func setImageView() {
+        productImageView.layer.cornerRadius = 5
     }
     
     private func makeProduct() -> AddProduct? {
