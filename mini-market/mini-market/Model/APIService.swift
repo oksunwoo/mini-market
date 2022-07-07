@@ -8,6 +8,14 @@
 import Foundation
 
 struct APIService {
+    private func request(api: APIProtocol) -> URLRequest? {
+        guard let url = api.url else {
+            return nil
+        }
+         
+        return URLRequest(url: url)
+    }
+    
     private func loadData(request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil else {
@@ -31,18 +39,12 @@ struct APIService {
         task.resume()
     }
     
-    func request(api: APIProtocol ,completion: @escaping (Result<Data, Error>) -> Void) {
-        guard let url = api.url else {
-            completion(.failure(NetworkError.urlIsNil))
+    func fetchData<T: Codable>(api: APIProtocol, decodingType: T.Type, completion: @escaping (_ data: T) -> Void) {
+        guard let request = request(api: api) else {
             return
         }
         
-        let request = URLRequest(url: url)
-        loadData(request: request, completion: completion)
-    }
-    
-    func fetchData<T: Codable>(api: APIProtocol, decodingType: T.Type, completion: @escaping (_ data: T) -> Void) {
-        request(api: api) { result in
+        loadData(request: request) { result in
             switch result {
             case .success(let data):
                 let decodeData = JSONParser<T>().decode(from: data)
