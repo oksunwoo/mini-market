@@ -59,7 +59,7 @@ struct APIService {
         }
     }
     
-    func makeRegisterDataBody(json: Data, boundary: String) {
+    func makeRegisterDataBody(json: Data, boundary: String, image: AddProductImage) -> Data? {
         var body = Data()
         let boundaryPrefix = "--\(boundary)\r\n"
         
@@ -68,6 +68,33 @@ struct APIService {
         body.append("Content-Type: application/json\r\n\r\n")
         body.append(json)
         body.append("\r\n")
+        
+        guard let imageData = makeRegisterImageData(image: image, boundary: boundaryPrefix) else {
+            return nil
+        }
+        
+        body.append(imageData)
+        body.append("--\(boundary)--\r\n")
+        
+        return body
+    }
+    
+    private func makeRegisterImageData(image: AddProductImage, boundary: String) -> Data? {
+        guard let fileData = image.data else {
+            return nil
+        }
+        
+        let fileName = image.fileName
+        let type = "image/\(image.type.description)"
+        var data = Data()
+        
+        data.append(boundary)
+        data.append("Content-Disposition: form-data; name=\"images\"; filename=\"\(fileName)\"\r\n")
+        data.append("Content-Type: \(type)\r\n\r\n")
+        data.append(fileData)
+        data.append("\r\n")
+        
+        return data
     }
     
 }
