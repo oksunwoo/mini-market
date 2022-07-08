@@ -59,8 +59,15 @@ struct APIService {
         }
     }
     
-    func makeRegisterDataBody(parameters: AddProduct, boundary: String) {
+    func makeRegisterDataBody(json: Data, boundary: String) {
+        var body = Data()
+        let boundaryPrefix = "--\(boundary)\r\n"
         
+        body.append(boundaryPrefix)
+        body.append("Content-Disposition: form-data; name=\"params\"\r\n")
+        body.append("Content-Type: application/json\r\n\r\n")
+        body.append(json)
+        body.append("\r\n")
     }
     
 }
