@@ -8,14 +8,6 @@
 import Foundation
 
 struct APIService {
-    private func request(api: APIProtocol) -> URLRequest? {
-        guard let url = api.url else {
-            return nil
-        }
-         
-        return URLRequest(url: url)
-    }
-    
     private func loadData(request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil else {
@@ -39,12 +31,18 @@ struct APIService {
         task.resume()
     }
     
-    func fetchData<T: Codable>(api: APIProtocol, decodingType: T.Type, completion: @escaping (_ data: T) -> Void) {
-        guard let request = request(api: api) else {
+    func request(api: APIProtocol, completion: @escaping (Result<Data, Error>) -> Void) {
+        guard let url = api.url else {
+            completion(.failure(NetworkError.urlIsNil))
             return
         }
-        
-        loadData(request: request) { result in
+    
+        let request = URLRequest(url: url)
+        loadData(request: request, completion: completion)
+    }
+    
+    func fetchData<T: Codable>(api: APIProtocol, decodingType: T.Type, completion: @escaping (_ data: T) -> Void) {
+        request(api: api) { result in
             switch result {
             case .success(let data):
                 let decodeData = JSONParser<T>().decode(from: data)
@@ -60,4 +58,9 @@ struct APIService {
             }
         }
     }
+    
+    func makeRegisterDataBody(parameters: AddProduct, boundary: String) {
+        
+    }
+    
 }
