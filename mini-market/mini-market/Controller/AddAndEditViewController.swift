@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddAndEditViewController: UIViewController {
+final class AddAndEditViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var productNameTextField: UITextField!
     @IBOutlet weak var productPriceTextField: UITextField!
@@ -26,7 +26,7 @@ class AddAndEditViewController: UIViewController {
         return imagePicker
     }()
     
-    var addImage: AddProductImage?
+    private var addImage: AddProductImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ListViewController: UIViewController {
+final class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var products: [Product]?
+    private var products: [Product]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +18,7 @@ class ListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        setNavigationTitle()
         setProducts()
     }
     
@@ -28,6 +29,10 @@ class ListViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    private func setNavigationTitle() {
+        navigationItem.title = "mini-market"
     }
     
     //MARK: - IBAction
