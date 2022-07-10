@@ -31,18 +31,20 @@ struct APIService {
         task.resume()
     }
     
-    func request(api: APIProtocol, completion: @escaping (Result<Data, Error>) -> Void) {
+    func request(api: APIProtocol) -> URLRequest? {
         guard let url = api.url else {
-            completion(.failure(NetworkError.urlIsNil))
-            return
+            return nil
         }
-    
-        let request = URLRequest(url: url)
-        loadData(request: request, completion: completion)
+        
+       return URLRequest(url: url)
     }
     
     func fetchData<T: Codable>(api: APIProtocol, decodingType: T.Type, completion: @escaping (_ data: T) -> Void) {
-        request(api: api) { result in
+        guard let request = request(api: api) else {
+            return
+        }
+        
+        loadData(request: request) { result in
             switch result {
             case .success(let data):
                 let decodeData = JSONParser<T>().decode(from: data)
@@ -97,4 +99,27 @@ struct APIService {
         return data
     }
     
+    func postData(api: APIProtocol, product: AddProduct, image: AddProductImage , completion: @escaping (Result<Data, Error>) -> Void) {
+        guard var request = request(api: api) else {
+            return
+        }
+        
+        let boundary = UUID().uuidString
+        let headers: [String: String] = ["Content-Type": "multipart/form-data; boundary=\(boundary)", "identifier": "b82914a6-71fc-11ec-abfa-bb4b58856698"]
+        
+        headers.forEach { (key, value) in
+            request.setValue(value, forHTTPHeaderField: key)
+        }
+        
+        let encodedData = JSONParser().encode(from: product)
+        switch encodedData {
+        case .success(let data):
+            let body = makeRegisterDataBody(json: data, boundary: boundary, image: image)
+            request.httpBody = body
+        case .failure(_):
+            return
+        }
+        
+        loadData(request: request, completion: completion)
+    }
 }
