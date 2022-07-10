@@ -11,6 +11,7 @@ final class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var products: [Product]?
+    private let refresh = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,7 @@ final class ListViewController: UIViewController {
         
         setNavigationTitle()
         setProducts()
+        self.initRefresh()
     }
     
     private func setProducts() {
@@ -80,5 +82,19 @@ extension ListViewController: UITableViewDataSource {
         
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
+}
+
+extension ListViewController {
+    func initRefresh() {
+        refresh.addTarget(self, action: #selector(refreshTable(refresh:)), for: .valueChanged)
+        refresh.backgroundColor = UIColor.clear
+        self.tableView.refreshControl = refresh
+    }
     
+    @objc func refreshTable(refresh: UIRefreshControl) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.setProducts()
+            refresh.endRefreshing()
+        }
+    }
 }
