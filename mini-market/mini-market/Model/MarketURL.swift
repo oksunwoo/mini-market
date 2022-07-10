@@ -37,3 +37,12 @@ struct ProductListAPI: APIProtocol {
         self.url = URL(string: "\(baseURL.baseURL)" + "api/products/?page_no=" + "\(pageNumber)" + "&items_per_page=" + "\(itemsPerPage)")
     }
 }
+
+struct ProductAddAPI: APIProtocol {
+    var url: URL?
+    var method: HttpMethod = .post
+    
+    init(baseURL: URLProtocol = MarketURL()) {
+        self.url = URL(string: "\(baseURL.baseURL)" + "api/products")
+    }
+}

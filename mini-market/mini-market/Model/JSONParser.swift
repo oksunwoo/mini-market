@@ -22,4 +22,19 @@ struct JSONParser<Item: Codable> {
         
         return .success(decodedData)
     }
+    
+    func encode(from item: Item?) -> Result<Data, JSONParseError> {
+        guard let item = item else {
+            return .failure(.encodingFail)
+        }
+
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        
+        guard let encodedData = try? encoder.encode(item) else {
+            return .failure(.encodingFail)
+        }
+        
+        return .success(encodedData)
+    }
 }

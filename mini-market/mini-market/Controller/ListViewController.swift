@@ -7,10 +7,11 @@
 
 import UIKit
 
-class ListViewController: UIViewController {
+final class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var products: [Product]?
+    private var products: [Product]?
+    private let refresh = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +19,9 @@ class ListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        
+        setNavigationTitle()
         setProducts()
+        self.initRefresh()
     }
     
     private func setProducts() {
@@ -29,6 +31,19 @@ class ListViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    private func setNavigationTitle() {
+        navigationItem.title = "mini-market"
+    }
+    
+    //MARK: - IBAction
+    @IBAction func productAddButton(_ sender: UIBarButtonItem) {
+        let addStoryboard = UIStoryboard(name: "AddAndEditView", bundle: nil)
+        let addViewController = addStoryboard.instantiateViewController(withIdentifier: "AddAndEditNavigation")
+        addViewController.modalPresentationStyle = .fullScreen
+        
+        present(addViewController, animated: true, completion: nil)
     }
 }
 
@@ -59,4 +74,27 @@ extension ListViewController: UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailStoryboard = UIStoryboard(name: "DetailView", bundle: nil)
+        let detailViewController = detailStoryboard.instantiateViewController(identifier: "DetailViewController") { coder in
+            return DetailViewController(coder: coder, product: self.products?[indexPath.row])
+        }
+        
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
+}
+
+extension ListViewController {
+    func initRefresh() {
+        refresh.addTarget(self, action: #selector(refreshTable(refresh:)), for: .valueChanged)
+        refresh.backgroundColor = UIColor.clear
+        self.tableView.refreshControl = refresh
+    }
+    
+    @objc func refreshTable(refresh: UIRefreshControl) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.setProducts()
+            refresh.endRefreshing()
+        }
+    }
 }
