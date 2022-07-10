@@ -26,6 +26,8 @@ class AddAndEditViewController: UIViewController {
         return imagePicker
     }()
     
+    var addImage: AddProductImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +38,22 @@ class AddAndEditViewController: UIViewController {
     }
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
+        guard let product = makeProduct(), let image = addImage else {
+            return
+        }
         
+        let productRegister = ProductAddAPI()
+        
+        APIService().postData(api: productRegister, httpMethod: productRegister.method.description, product: product, image: image) { result in
+            switch result {
+            case .success(let data):
+                print(data)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        dismiss(animated: true, completion: nil)
     }
     
     
@@ -85,6 +102,7 @@ extension AddAndEditViewController: UIImagePickerControllerDelegate & UINavigati
                 return
             }
             
+            self.addImage = AddProductImage(name: "image", type: .jpeg, image: image)
             self.productImageView.image = image
         }
     }

@@ -31,7 +31,7 @@ struct APIService {
         task.resume()
     }
     
-    func request(api: APIProtocol) -> URLRequest? {
+    private func request(api: APIProtocol) -> URLRequest? {
         guard let url = api.url else {
             return nil
         }
@@ -61,7 +61,7 @@ struct APIService {
         }
     }
     
-    func makeRegisterDataBody(json: Data, boundary: String, image: AddProductImage) -> Data? {
+    private func makeRegisterDataBody(json: Data, boundary: String, image: AddProductImage) -> Data? {
         var body = Data()
         let boundaryPrefix = "--\(boundary)\r\n"
         
@@ -99,10 +99,12 @@ struct APIService {
         return data
     }
     
-    func postData(api: APIProtocol, product: AddProduct, image: AddProductImage , completion: @escaping (Result<Data, Error>) -> Void) {
+    func postData(api: APIProtocol, httpMethod: String, product: AddProduct, image: AddProductImage , completion: @escaping (Result<Data, Error>) -> Void) {
         guard var request = request(api: api) else {
             return
         }
+        
+        request.httpMethod = httpMethod
         
         let boundary = UUID().uuidString
         let headers: [String: String] = ["Content-Type": "multipart/form-data; boundary=\(boundary)", "identifier": "b82914a6-71fc-11ec-abfa-bb4b58856698"]
