@@ -8,7 +8,8 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
-    var product: Product?
+    private var productID: Int?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,8 +17,8 @@ final class DetailViewController: UIViewController {
         setNavigationTitle()
     }
     
-    init?(coder: NSCoder, product: Product?) {
-        self.product = product
+    init?(coder: NSCoder, productID: Int?) {
+        self.productID = productID
         super.init(coder: coder)
     }
     
@@ -26,6 +27,6 @@ final class DetailViewController: UIViewController {
     }
     
     private func setNavigationTitle() {
-        navigationItem.title = product?.name
+        navigationItem.title = String(productID!)
     }
 }
