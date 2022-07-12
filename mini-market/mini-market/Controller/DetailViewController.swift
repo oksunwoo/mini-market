@@ -9,12 +9,13 @@ import UIKit
 
 final class DetailViewController: UIViewController {
     private var productID: Int?
-    
+    private var productDetail: ProductDetail?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setNavigationTitle()
+        setProduct()
     }
     
     init?(coder: NSCoder, productID: Int?) {
@@ -28,5 +29,15 @@ final class DetailViewController: UIViewController {
     
     private func setNavigationTitle() {
         navigationItem.title = String(productID!)
+    }
+    
+    private func setProduct() {
+        guard let id = productID else {
+            return
+        }
+        
+        APIService().fetchData(api: ProductPageAPI(productID: id), decodingType: ProductDetail.self) { data in
+            self.productDetail = data
+        }
     }
 }
