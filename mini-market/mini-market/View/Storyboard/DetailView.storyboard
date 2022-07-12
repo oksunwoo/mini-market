@@ -103,7 +103,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="t5a-3W-9bL">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="MDL-0P-n37"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="MDL-0P-n37">
+                            <connections>
+                                <action selector="DeleteOrEditButton:" destination="Y6W-OH-hqX" id="Ltp-y1-zUs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

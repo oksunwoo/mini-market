@@ -78,6 +78,16 @@ final class DetailViewController: UIViewController {
             productDiscountedLabel.text = currency.rawValue + " " + discountedPrice.formatted()
         }
     }
+    
+    @IBAction func DeleteOrEditButton(_ sender: UIBarButtonItem) {
+        let editAction = UIAlertAction(title: "Edit", style: .default)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        let alert = AlertFactory().createAlert(actions: editAction, deleteAction, cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension String {
