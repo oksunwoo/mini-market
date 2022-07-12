@@ -54,10 +54,18 @@ final class DetailViewController: UIViewController {
     
     private func setNameLabel(name: String) {
         productNameLabel.text = name
+        productNameLabel.font = UIFont.boldSystemFont(ofSize: 16)
     }
     
     private func setStockLabel(stock: Int) {
-        productStockLabel.text = "수량: " + String(stock)
+        if stock == 0 {
+            productStockLabel.text = "품절"
+            productStockLabel.textColor = .systemRed
+        } else {
+            productStockLabel.text = "남은수량: " + String(stock)
+            productStockLabel.textColor = .systemGray
+        }
+        
     }
     
     private func setPriceLabel(price: Int, discountedPrice: Int, currency: Currency) {
@@ -65,7 +73,18 @@ final class DetailViewController: UIViewController {
             productPriceLabel.text = currency.rawValue + " " + price.formatted()
         } else {
             productPriceLabel.text = currency.rawValue + " " + price.formatted()
+            productPriceLabel.textColor = .systemRed
+            productPriceLabel.attributedText = productPriceLabel.text?.strikeThrough()
             productDiscountedLabel.text = currency.rawValue + " " + discountedPrice.formatted()
         }
+    }
+}
+
+extension String {
+    func strikeThrough() -> NSAttributedString {
+        let attributeString = NSMutableAttributedString(string: self)
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
+        
+        return attributeString
     }
 }
