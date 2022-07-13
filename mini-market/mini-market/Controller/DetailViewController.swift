@@ -20,7 +20,6 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setView(with: product)
-        
     }
     
     init?(coder: NSCoder, product: Product?) {
@@ -65,7 +64,6 @@ final class DetailViewController: UIViewController {
             productStockLabel.text = "남은수량: " + String(stock)
             productStockLabel.textColor = .systemGray
         }
-        
     }
     
     private func setPriceLabel(price: Int, discountedPrice: Int, currency: Currency) {
@@ -81,7 +79,19 @@ final class DetailViewController: UIViewController {
     
     @IBAction func DeleteOrEditButton(_ sender: UIBarButtonItem) {
         let editAction = UIAlertAction(title: "Edit", style: .default)
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            let okAction = UIAlertAction(title: "Confirm", style: .default) { _ in
+                
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let alert = AlertFactory().createAlert(style: .alert, title: "정말 삭제하시겠습니까?", message: nil, actions: okAction, cancelAction)
+            alert.addTextField { textField in
+                textField.placeholder = "삭제하시려면 암호를 입력해주세요"
+            }
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
         let alert = AlertFactory().createAlert(actions: editAction, deleteAction, cancelAction)
