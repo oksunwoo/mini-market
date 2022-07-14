@@ -78,7 +78,14 @@ final class DetailViewController: UIViewController {
     }
     
     @IBAction func DeleteOrEditButton(_ sender: UIBarButtonItem) {
-        let editAction = UIAlertAction(title: "Edit", style: .default)
+        let editAction = UIAlertAction(title: "Edit", style: .default) { _ in
+            let addStoryboard = UIStoryboard(name: "AddAndEditView", bundle: nil)
+            let addViewController = addStoryboard.instantiateViewController(withIdentifier: "AddAndEditNavigation")
+            addViewController.modalPresentationStyle = .fullScreen
+            
+            self.present(addViewController, animated: true, completion: nil)
+        }
+        
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
             let okAction = UIAlertAction(title: "Confirm", style: .default) { _ in
                 
