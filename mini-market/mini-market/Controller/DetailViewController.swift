@@ -79,9 +79,14 @@ final class DetailViewController: UIViewController {
     
     @IBAction func DeleteOrEditButton(_ sender: UIBarButtonItem) {
         let editAction = UIAlertAction(title: "Edit", style: .default) { _ in
+            guard let product = self.product else {
+                return
+            }
+            
             let editStoryboard = UIStoryboard(name: "AddAndEditView", bundle: nil)
             let editViewController = editStoryboard.instantiateViewController(identifier: "AddAndEditViewController"){ coder in
-                return AddAndEditViewController(coder: coder, page: .edit)
+            
+                return AddAndEditViewController(coder: coder, page: .edit, product: product)
             }
             
             let editViewNavigationController = UINavigationController(rootViewController: editViewController)

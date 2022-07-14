@@ -29,6 +29,7 @@ final class AddAndEditViewController: UIViewController {
     
     private var addImage: AddProductImage?
     private let page: Mode
+    private let product: Product?
     
     enum Mode {
         case edit
@@ -42,11 +43,13 @@ final class AddAndEditViewController: UIViewController {
         setImageView()
         setNavigationTitle(page: page)
         setImageAddButton(page: page)
+        setProductTextField(product: product)
         // Do any additional setup after loading the view.
     }
     
-    init?(coder: NSCoder, page: Mode) {
+    init?(coder: NSCoder, page: Mode, product: Product?) {
         self.page = page
+        self.product = product
         super.init(coder: coder)
     }
     
@@ -98,6 +101,19 @@ final class AddAndEditViewController: UIViewController {
         case .add:
             addImageButton.layer.isHidden = false
         }
+    }
+    
+    private func setProductTextField(product: Product?) {
+        guard let product = product else {
+            return
+        }
+        
+        productImageView.loadImage(url: product.thumbnail)
+        productNameTextField.text = product.name
+        productPriceTextField.text = String(product.price)
+        productDiscountedPriceTextField.text = String(product.discountedPrice)
+        productStockTextField.text = String(product.stock)
+        
     }
     
     private func makeProduct() -> AddProduct? {

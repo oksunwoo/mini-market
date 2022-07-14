@@ -41,7 +41,7 @@ final class ListViewController: UIViewController {
     @IBAction func productAddButton(_ sender: UIBarButtonItem) {
         let addStoryboard = UIStoryboard(name: "AddAndEditView", bundle: nil)
         let addViewController = addStoryboard.instantiateViewController(identifier: "AddAndEditViewController") { coder in
-            return AddAndEditViewController(coder: coder, page: .add)
+            return AddAndEditViewController(coder: coder, page: .add, product: nil)
         }
         
         let addViewNavigationController = UINavigationController(rootViewController: addViewController)
