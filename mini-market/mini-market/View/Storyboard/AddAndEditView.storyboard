@@ -143,6 +143,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addImageButton" destination="UmP-08-aO9" id="Mye-Qs-3Wa"/>
                         <outlet property="currencySegmentedControl" destination="AGv-KT-Xd3" id="dyJ-bp-2wp"/>
                         <outlet property="productDescriptionTextView" destination="und-pU-eb8" id="qxJ-gI-hYu"/>
                         <outlet property="productDiscountedPriceTextField" destination="8zO-wf-9Td" id="SHY-Mx-7jX"/>

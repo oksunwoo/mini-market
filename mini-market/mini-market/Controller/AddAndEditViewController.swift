@@ -16,6 +16,7 @@ final class AddAndEditViewController: UIViewController {
     @IBOutlet weak var productDescriptionTextView: UITextView!
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var currencySegmentedControl: UISegmentedControl!
+    @IBOutlet weak var addImageButton: UIButton!
     
     private lazy var imagePicker: UIImagePickerController = {
         let imagePicker = UIImagePickerController()
@@ -40,6 +41,7 @@ final class AddAndEditViewController: UIViewController {
         setKeyboardObserver()
         setImageView()
         setNavigationTitle(page: page)
+        setImageAddButton(page: page)
         // Do any additional setup after loading the view.
     }
     
@@ -87,6 +89,15 @@ final class AddAndEditViewController: UIViewController {
     
     private func setImageView() {
         productImageView.layer.cornerRadius = 5
+    }
+    
+    private func setImageAddButton(page: Mode) {
+        switch page {
+        case .edit:
+            addImageButton.layer.isHidden = true
+        case .add:
+            addImageButton.layer.isHidden = false
+        }
     }
     
     private func makeProduct() -> AddProduct? {
