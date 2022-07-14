@@ -27,14 +27,29 @@ final class AddAndEditViewController: UIViewController {
     }()
     
     private var addImage: AddProductImage?
+    private let page: Mode
+    
+    enum Mode {
+        case edit
+        case add
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setKeyboardObserver()
         setImageView()
-        setNavigationTitle()
+        setNavigationTitle(page: page)
         // Do any additional setup after loading the view.
+    }
+    
+    init?(coder: NSCoder, page: Mode) {
+        self.page = page
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
     }
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
@@ -61,8 +76,13 @@ final class AddAndEditViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    private func setNavigationTitle() {
-        navigationItem.title = "상품 등록"
+    private func setNavigationTitle(page: Mode) {
+        switch page {
+        case .edit:
+            navigationItem.title = "상품 수정"
+        case .add:
+            navigationItem.title = "상품 등록"
+        }
     }
     
     private func setImageView() {

@@ -40,10 +40,13 @@ final class ListViewController: UIViewController {
     //MARK: - IBAction
     @IBAction func productAddButton(_ sender: UIBarButtonItem) {
         let addStoryboard = UIStoryboard(name: "AddAndEditView", bundle: nil)
-        let addViewController = addStoryboard.instantiateViewController(withIdentifier: "AddAndEditNavigation")
-        addViewController.modalPresentationStyle = .fullScreen
+        let addViewController = addStoryboard.instantiateViewController(identifier: "AddAndEditViewController") { coder in
+            return AddAndEditViewController(coder: coder, page: .add)
+        }
         
-        present(addViewController, animated: true, completion: nil)
+        let addViewNavigationController = UINavigationController(rootViewController: addViewController)
+        addViewNavigationController.modalPresentationStyle = .fullScreen
+        present(addViewNavigationController, animated: true, completion: nil)
     }
 }
 
