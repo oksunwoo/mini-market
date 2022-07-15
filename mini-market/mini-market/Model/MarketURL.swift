@@ -55,3 +55,12 @@ struct ProductPageAPI: APIProtocol {
         self.url = URL(string: "\(baseURL.baseURL)" + "api/products/\(productID)")
     }
 }
+
+struct ProductSecretAPI: APIProtocol {
+    var url: URL?
+    var method: HttpMethod = .post
+    
+    init(baseURL: URLProtocol = MarketURL(), productID: Int) {
+        self.url = URL(string: "\(baseURL.baseURL)" + "api/products/\(productID)/secret")
+    }
+}
