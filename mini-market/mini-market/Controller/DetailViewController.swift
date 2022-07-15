@@ -99,6 +99,7 @@ final class DetailViewController: UIViewController {
             let okAction = UIAlertAction(title: "Confirm", style: .default) { _ in
                 
             }
+            
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             let alert = AlertFactory().createAlert(style: .alert, title: "정말 삭제하시겠습니까?", message: nil, actions: okAction, cancelAction)
             alert.addTextField { textField in

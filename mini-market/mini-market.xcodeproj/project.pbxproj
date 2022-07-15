@@ -27,6 +27,7 @@
 		53A65D7E283E05CE00D0DE1B /* URLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */; };
 		53A65DCD284907D800D0DE1B /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A65DCC284907D700D0DE1B /* APIProtocol.swift */; };
 		53C0AFD6287DA87F005B6487 /* AlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C0AFD5287DA87F005B6487 /* AlertFactory.swift */; };
+		53C0AFD8288179F9005B6487 /* ProductSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C0AFD7288179F9005B6487 /* ProductSecret.swift */; };
 		53C54291286F222900B34E38 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C54290286F222900B34E38 /* DetailViewController.swift */; };
 		53C54295286F28B000B34E38 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C54294286F28B000B34E38 /* DetailView.storyboard */; };
 		53C54298286F3A2200B34E38 /* AddAndEditView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C54297286F3A2200B34E38 /* AddAndEditView.storyboard */; };
@@ -61,6 +62,7 @@
 		53A65D7D283E05CE00D0DE1B /* URLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocol.swift; sourceTree = "<group>"; };
 		53A65DCC284907D700D0DE1B /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		53C0AFD5287DA87F005B6487 /* AlertFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertFactory.swift; sourceTree = "<group>"; };
+		53C0AFD7288179F9005B6487 /* ProductSecret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSecret.swift; sourceTree = "<group>"; };
 		53C54290286F222900B34E38 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		53C54294286F28B000B34E38 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		53C54297286F3A2200B34E38 /* AddAndEditView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAndEditView.storyboard; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				538F5A752878528D003B8E38 /* AddProductImage.swift */,
 				538F5A77287C6487003B8E38 /* ProductDetail.swift */,
 				538F5A79287C65B5003B8E38 /* ImageData.swift */,
+				53C0AFD7288179F9005B6487 /* ProductSecret.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				53FB696E286081F700956157 /* UIImageView+Extension.swift in Sources */,
 				53805E4F280DB2FA006AC65A /* AppDelegate.swift in Sources */,
 				53F2DBE02872E54D00380B21 /* AddProduct.swift in Sources */,
+				53C0AFD8288179F9005B6487 /* ProductSecret.swift in Sources */,
 				53805E51280DB2FA006AC65A /* SceneDelegate.swift in Sources */,
 				53D68900284B9B5000649C9A /* ListTableViewCell.swift in Sources */,
 				538F5A7428783CD5003B8E38 /* Data+Extension.swift in Sources */,

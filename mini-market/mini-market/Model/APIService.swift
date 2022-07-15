@@ -124,4 +124,12 @@ struct APIService {
         
         loadData(request: request, completion: completion)
     }
+    
+    func makeDataBody(json: Data, boundary: String) -> Data? {
+        
+    }
+    
+    func postSecret(api: APIProtocol) {
+        
+    }
 }
