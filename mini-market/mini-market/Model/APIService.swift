@@ -107,7 +107,7 @@ struct APIService {
         request.httpMethod = httpMethod
         
         let boundary = UUID().uuidString
-        let headers: [String: String] = ["Content-Type": "multipart/form-data; boundary=\(boundary)", "identifier": "cd706a3e-66db-11ec-9626-796401f2341a"]
+        let headers: [String: String] = ["Content-Type": "multipart/form-data; boundary=\(boundary)", "identifier": "b82914a6-71fc-11ec-abfa-bb4b58856698"]
         
         headers.forEach { (key, value) in
             request.setValue(value, forHTTPHeaderField: key)
@@ -150,7 +150,19 @@ struct APIService {
         loadData(request: request, completion: completion)
     }
     
-    func deleteData() {
+    func deleteData(api: APIProtocol, httpMethod: String, completion: @escaping(Result<Data, Error>) -> Void) {
+        guard var request = request(api: api) else {
+            return
+        }
         
+        request.httpMethod = httpMethod
+        
+        let headers = ["identifier": "cd706a3e-66db-11ec-9626-796401f2341a", "Content-Type": "application/json"]
+        
+        headers.forEach { (key, value) in
+            request.setValue(value, forHTTPHeaderField: key)
+        }
+        
+        loadData(request: request, completion: completion)
     }
 }
