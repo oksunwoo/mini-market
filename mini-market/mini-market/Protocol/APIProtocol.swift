@@ -15,6 +15,7 @@ protocol APIProtocol {
 enum HttpMethod {
     case get
     case post
+    case delete
     
     var description: String {
         switch self {
@@ -22,6 +23,8 @@ enum HttpMethod {
             return "GET"
         case .post:
             return "POST"
+        case .delete:
+            return "DELETE"
         }
     }
 }

@@ -64,3 +64,12 @@ struct ProductSecretAPI: APIProtocol {
         self.url = URL(string: "\(baseURL.baseURL)" + "api/products/\(productID)/secret")
     }
 }
+
+struct ProductDeleteAPI: APIProtocol {
+    var url: URL?
+    var method: HttpMethod = .delete
+    
+    init(baseURL: URLProtocol = MarketURL(), productID: Int, secret: String) {
+        self.url = URL(string: "\(baseURL.baseURL)" + "api/products/\(productID)/\(secret)")
+    }
+}

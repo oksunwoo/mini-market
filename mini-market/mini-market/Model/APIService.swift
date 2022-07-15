@@ -149,4 +149,8 @@ struct APIService {
         
         loadData(request: request, completion: completion)
     }
+    
+    func deleteData() {
+        
+    }
 }
