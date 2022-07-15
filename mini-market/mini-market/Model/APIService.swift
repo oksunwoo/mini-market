@@ -107,7 +107,7 @@ struct APIService {
         request.httpMethod = httpMethod
         
         let boundary = UUID().uuidString
-        let headers: [String: String] = ["Content-Type": "multipart/form-data; boundary=\(boundary)", "identifier": "b82914a6-71fc-11ec-abfa-bb4b58856698"]
+        let headers: [String: String] = ["Content-Type": "multipart/form-data; boundary=\(boundary)", "identifier": "cd706a3e-66db-11ec-9626-796401f2341a"]
         
         headers.forEach { (key, value) in
             request.setValue(value, forHTTPHeaderField: key)
@@ -124,12 +124,29 @@ struct APIService {
         
         loadData(request: request, completion: completion)
     }
-    
-    func makeDataBody(json: Data, boundary: String) -> Data? {
+
+    func postSecret(api: APIProtocol, httpMethod: String, secret: ProductSecret, completion: @escaping (Result<Data, Error>) -> Void) {
+        guard var request = request(api: api) else {
+            return
+        }
         
-    }
-    
-    func postSecret(api: APIProtocol) {
+        request.httpMethod = httpMethod
         
+        let headers = ["identifier": "cd706a3e-66db-11ec-9626-796401f2341a", "Content-Type": "application/json"]
+        
+        headers.forEach { (key, value) in
+            request.setValue(value, forHTTPHeaderField: key)
+        }
+        
+        let encodedData = JSONParser().encode(from: secret)
+        switch encodedData {
+        case .success(let data):
+            let body = data
+            request.httpBody = body
+        case .failure(_):
+            return
+        }
+        
+        loadData(request: request, completion: completion)
     }
 }

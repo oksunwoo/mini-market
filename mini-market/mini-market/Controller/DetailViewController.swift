@@ -97,7 +97,20 @@ final class DetailViewController: UIViewController {
         
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
             let okAction = UIAlertAction(title: "Confirm", style: .default) { _ in
+                guard let id = self.product?.id else {
+                    return
+                }
+                let productSecret = ProductSecretAPI(productID: id)
+                let secret = ProductSecret(secret: "password")
                 
+                APIService().postSecret(api: productSecret, httpMethod: productSecret.method.description, secret: secret) { result in
+                    switch result {
+                    case .success(let secret):
+                        print(secret)
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
             }
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
