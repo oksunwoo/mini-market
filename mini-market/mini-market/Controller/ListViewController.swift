@@ -19,6 +19,7 @@ final class ListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        
         setNavigationTitle()
         setProducts()
         self.initRefresh()
@@ -44,6 +45,7 @@ final class ListViewController: UIViewController {
             return AddAndEditViewController(coder: coder, page: .add, product: nil)
         }
         
+        addViewController.delegate = self
         let addViewNavigationController = UINavigationController(rootViewController: addViewController)
         addViewNavigationController.modalPresentationStyle = .fullScreen
         present(addViewNavigationController, animated: true, completion: nil)
@@ -99,5 +101,11 @@ extension ListViewController {
             self.setProducts()
             refresh.endRefreshing()
         }
+    }
+}
+
+extension ListViewController: reloadView {
+    func reloadTableView() {
+        setProducts()
     }
 }

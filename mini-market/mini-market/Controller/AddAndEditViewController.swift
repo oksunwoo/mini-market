@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol reloadView: AnyObject {
+    func reloadTableView()
+}
+
 final class AddAndEditViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var productNameTextField: UITextField!
@@ -31,6 +35,8 @@ final class AddAndEditViewController: UIViewController {
     private let page: Mode
     private let product: Product?
     
+    var delegate: reloadView?
+    
     enum Mode {
         case edit
         case add
@@ -38,6 +44,8 @@ final class AddAndEditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         setKeyboardObserver()
         setImageView()
@@ -68,6 +76,7 @@ final class AddAndEditViewController: UIViewController {
             switch result {
             case .success(let data):
                 print(data)
+                self.delegate?.reload()
             case .failure(let error):
                 print(error.localizedDescription)
             }

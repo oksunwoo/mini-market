@@ -107,6 +107,18 @@ final class DetailViewController: UIViewController {
                     switch result {
                     case .success(let secret):
                         print(secret)
+                        let userPassword = String(decoding: secret, as: UTF8.self)
+                        let productDelete = ProductDeleteAPI(productID: id, userPassword: userPassword)
+                        
+                        APIService().deleteData(api: productDelete, httpMethod: productDelete.method.description) { result in
+                            switch result {
+                            case .success(_):
+                                print("삭제 성공")
+                            case .failure(let error):
+                                print(error.localizedDescription)
+                            }
+                        }
+                        
                     case .failure(let error):
                         print(error.localizedDescription)
                     }
