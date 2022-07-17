@@ -85,6 +85,7 @@ extension ListViewController: UITableViewDataSource {
             return DetailViewController(coder: coder, product: self.products?[indexPath.row])
         }
         
+        detailViewController.delegate = self
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

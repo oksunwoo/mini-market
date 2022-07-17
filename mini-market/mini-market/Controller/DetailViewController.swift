@@ -15,6 +15,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var productDiscountedLabel: UILabel!
     
     private var product: Product?
+    weak var delegate: reloadView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,23 +114,40 @@ final class DetailViewController: UIViewController {
                         APIService().deleteData(api: productDelete, httpMethod: productDelete.method.description) { result in
                             switch result {
                             case .success(_):
-                                print("삭제 성공")
-                            case .failure(let error):
-                                print(error.localizedDescription)
+                                self.delegate?.reloadTableView()
+                                DispatchQueue.main.async {
+                                    let okAction = UIAlertAction(title: "Confirm", style: .default) { _ in
+                                        self.navigationController?.popViewController(animated: true)
+                                    }
+                                    
+                                    let alert = AlertFactory().createAlert(style: .alert, title: "삭제 완료", message: "제품 정보를 찾을 수 없어 메인화면으로 이동합니다.", actions: okAction)
+                                    
+                                    self.present(alert, animated: true, completion: nil)
+                                }
+                                
+                            case .failure(_):
+                                DispatchQueue.main.async {
+                                    let okAction = UIAlertAction(title: "Confirm", style: .default)
+                                    let alert = AlertFactory().createAlert(style: .alert, title: "삭제 실패", message: "본인의 제품만 삭제할 수 있습니다.", actions: okAction)
+                                    
+                                    self.present(alert, animated: true, completion: nil)
+                                }
                             }
                         }
                         
-                    case .failure(let error):
-                        print(error.localizedDescription)
+                    case .failure(_):
+                        DispatchQueue.main.async {
+                            let okAction = UIAlertAction(title: "Confirm", style: .default)
+                            let alert = AlertFactory().createAlert(style: .alert, title: "삭제 실패", message: "본인의 제품만 삭제할 수 있습니다.", actions: okAction)
+                            
+                            self.present(alert, animated: true, completion: nil)
+                        }
                     }
                 }
             }
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             let alert = AlertFactory().createAlert(style: .alert, title: "정말 삭제하시겠습니까?", message: nil, actions: okAction, cancelAction)
-            alert.addTextField { textField in
-                textField.placeholder = "삭제하시려면 암호를 입력해주세요"
-            }
             
             self.present(alert, animated: true, completion: nil)
         }

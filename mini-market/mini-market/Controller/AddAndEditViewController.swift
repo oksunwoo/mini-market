@@ -34,8 +34,7 @@ final class AddAndEditViewController: UIViewController {
     private var addImage: AddProductImage?
     private let page: Mode
     private let product: Product?
-    
-    var delegate: reloadView?
+    weak var delegate: reloadView?
     
     enum Mode {
         case edit
@@ -44,8 +43,6 @@ final class AddAndEditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         setKeyboardObserver()
         setImageView()
@@ -76,7 +73,7 @@ final class AddAndEditViewController: UIViewController {
             switch result {
             case .success(let data):
                 print(data)
-                self.delegate?.reload()
+                self.delegate?.reloadTableView()
             case .failure(let error):
                 print(error.localizedDescription)
             }
