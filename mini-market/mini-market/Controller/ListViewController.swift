@@ -19,13 +19,17 @@ final class ListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        
         setNavigationTitle()
         setProducts()
         self.initRefresh()
     }
     
     private func setProducts() {
-        APIService().fetchData(api: ProductListAPI(pageNumber: 1, itemsPerPage: 100), decodingType: ProductPage.self) { data in
+        APIService().fetchData(api: ProductListAPI(pageNumber: 1, itemsPerPage: 100), decodingType: ProductPage.self) { [weak self] data in
+            guard let self = self else {
+                return
+            }
             self.products = data.products
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -40,10 +44,14 @@ final class ListViewController: UIViewController {
     //MARK: - IBAction
     @IBAction func productAddButton(_ sender: UIBarButtonItem) {
         let addStoryboard = UIStoryboard(name: "AddAndEditView", bundle: nil)
-        let addViewController = addStoryboard.instantiateViewController(withIdentifier: "AddAndEditNavigation")
-        addViewController.modalPresentationStyle = .fullScreen
+        let addViewController = addStoryboard.instantiateViewController(identifier: "AddAndEditViewController") { coder in
+            return AddAndEditViewController(coder: coder, page: .add, product: nil)
+        }
         
-        present(addViewController, animated: true, completion: nil)
+        addViewController.delegate = self
+        let addViewNavigationController = UINavigationController(rootViewController: addViewController)
+        addViewNavigationController.modalPresentationStyle = .fullScreen
+        present(addViewNavigationController, animated: true, completion: nil)
     }
 }
 
@@ -80,6 +88,7 @@ extension ListViewController: UITableViewDataSource {
             return DetailViewController(coder: coder, product: self.products?[indexPath.row])
         }
         
+        detailViewController.delegate = self
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
@@ -96,5 +105,11 @@ extension ListViewController {
             self.setProducts()
             refresh.endRefreshing()
         }
+    }
+}
+
+extension ListViewController: reloadView {
+    func reloadTableView() {
+        setProducts()
     }
 }

@@ -11,7 +11,7 @@
         <!--Add And Edit View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="AddAndEditViewController" customModule="mini_market" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddAndEditViewController" id="Y6W-OH-hqX" customClass="AddAndEditViewController" customModule="mini_market" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,6 +97,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="400" id="T9E-nc-XuN"/>
                                                 </constraints>
+                                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -143,6 +144,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addImageButton" destination="UmP-08-aO9" id="Mye-Qs-3Wa"/>
                         <outlet property="currencySegmentedControl" destination="AGv-KT-Xd3" id="dyJ-bp-2wp"/>
                         <outlet property="productDescriptionTextView" destination="und-pU-eb8" id="qxJ-gI-hYu"/>
                         <outlet property="productDiscountedPriceTextField" destination="8zO-wf-9Td" id="SHY-Mx-7jX"/>
@@ -155,25 +157,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.0289855072465" y="104.46428571428571"/>
+            <point key="canvasLocation" x="1952.1739130434785" y="104.46428571428571"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="8Me-bK-hLg">
+        <scene sceneID="3Lk-pn-MMn">
             <objects>
-                <navigationController storyboardIdentifier="AddAndEditNavigation" automaticallyAdjustsScrollViewInsets="NO" id="rRV-q0-Vum" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8m8-Hh-uT0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DDa-SC-tgn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5JE-ms-M1w">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="dHf-bL-NqJ"/>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="d1u-x2-GzG"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EDV-Ps-E0t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o0b-Ze-z1v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="104.46428571428571"/>
+            <point key="canvasLocation" x="1042.0289855072465" y="104.46428571428571"/>
         </scene>
     </scenes>
     <resources>

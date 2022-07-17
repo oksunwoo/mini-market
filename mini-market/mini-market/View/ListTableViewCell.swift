@@ -31,7 +31,7 @@ class ListTableViewCell: UITableViewCell {
     func updateView(with data: Product) {
         productImageView.loadImage(url: data.thumbnail)
         productNameLabel.text = data.name
-        productPriceLabel.text = String(data.currency.rawValue) + " " + format(number: data.bargainPrice)
+        productPriceLabel.text = String(data.currency.rawValue) + " " + format(number: data.discountedPrice)
         updateStockLabel(by: data.stock)
     }
     

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol reloadView: AnyObject {
+    func reloadTableView()
+}
+
 final class AddAndEditViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var productNameTextField: UITextField!
@@ -16,6 +20,7 @@ final class AddAndEditViewController: UIViewController {
     @IBOutlet weak var productDescriptionTextView: UITextView!
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var currencySegmentedControl: UISegmentedControl!
+    @IBOutlet weak var addImageButton: UIButton!
     
     private lazy var imagePicker: UIImagePickerController = {
         let imagePicker = UIImagePickerController()
@@ -27,14 +32,34 @@ final class AddAndEditViewController: UIViewController {
     }()
     
     private var addImage: AddProductImage?
+    private let page: Mode
+    private let product: Product?
+    weak var delegate: reloadView?
+    
+    enum Mode {
+        case edit
+        case add
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setKeyboardObserver()
         setImageView()
-        setNavigationTitle()
+        setNavigationTitle(page: page)
+        setImageAddButton(page: page)
+        setProductTextField(product: product)
         // Do any additional setup after loading the view.
+    }
+    
+    init?(coder: NSCoder, page: Mode, product: Product?) {
+        self.page = page
+        self.product = product
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
     }
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
@@ -48,6 +73,7 @@ final class AddAndEditViewController: UIViewController {
             switch result {
             case .success(let data):
                 print(data)
+                self.delegate?.reloadTableView()
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -61,12 +87,39 @@ final class AddAndEditViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    private func setNavigationTitle() {
-        navigationItem.title = "상품 등록"
+    private func setNavigationTitle(page: Mode) {
+        switch page {
+        case .edit:
+            navigationItem.title = "상품 수정"
+        case .add:
+            navigationItem.title = "상품 등록"
+        }
     }
     
     private func setImageView() {
         productImageView.layer.cornerRadius = 5
+    }
+    
+    private func setImageAddButton(page: Mode) {
+        switch page {
+        case .edit:
+            addImageButton.layer.isHidden = true
+        case .add:
+            addImageButton.layer.isHidden = false
+        }
+    }
+    
+    private func setProductTextField(product: Product?) {
+        guard let product = product else {
+            return
+        }
+        
+        productImageView.loadImage(url: product.thumbnail)
+        productNameTextField.text = product.name
+        productPriceTextField.text = String(product.price)
+        productDiscountedPriceTextField.text = String(product.discountedPrice)
+        productStockTextField.text = String(product.stock)
+        
     }
     
     private func makeProduct() -> AddProduct? {

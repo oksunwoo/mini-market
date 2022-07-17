@@ -124,4 +124,45 @@ struct APIService {
         
         loadData(request: request, completion: completion)
     }
+
+    func postSecret(api: APIProtocol, httpMethod: String, secret: ProductSecret, completion: @escaping (Result<Data, Error>) -> Void) {
+        guard var request = request(api: api) else {
+            return
+        }
+        
+        request.httpMethod = httpMethod
+        
+        let headers = ["identifier": "cd706a3e-66db-11ec-9626-796401f2341a", "Content-Type": "application/json"]
+        
+        headers.forEach { (key, value) in
+            request.setValue(value, forHTTPHeaderField: key)
+        }
+        
+        let encodedData = JSONParser().encode(from: secret)
+        switch encodedData {
+        case .success(let data):
+            let body = data
+            request.httpBody = body
+        case .failure(_):
+            return
+        }
+        
+        loadData(request: request, completion: completion)
+    }
+    
+    func deleteData(api: APIProtocol, httpMethod: String, completion: @escaping(Result<Data, Error>) -> Void) {
+        guard var request = request(api: api) else {
+            return
+        }
+        
+        request.httpMethod = httpMethod
+        
+        let headers = ["identifier": "cd706a3e-66db-11ec-9626-796401f2341a", "Content-Type": "application/json"]
+        
+        headers.forEach { (key, value) in
+            request.setValue(value, forHTTPHeaderField: key)
+        }
+        
+        loadData(request: request, completion: completion)
+    }
 }
