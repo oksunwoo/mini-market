@@ -23,7 +23,7 @@
 - 상품 조회
     >| 이미지 캐시 적용 전| 후 |
     >| - | - |
-    >| ![](https://i.imgur.com/Jo5OGSz.gif) | ![](https://i.imgur.com/Xb7XIDx.gif) |
+    >| ![](https://i.imgur.com/mhUsNT1.gif) | ![](https://i.imgur.com/6ho5hXH.gif) |
     
 
     
@@ -40,7 +40,7 @@
 
     >|상품 등록|
     >|-|
-    >|![](https://i.imgur.com/kXXT4ND.gif)|
+    >|![](https://i.imgur.com/E1c625x.gif)|
     
 
     >|입력에 따른 키보드 위치 조정 전| 후 |
@@ -57,7 +57,8 @@
 - 상품 삭제
     
     >|상품 삭제 실패| 상품 삭제 성공 |
-    >| - | - |
+    >| - | - | 
+    >| ![](https://i.imgur.com/JTLkbI8.gif) | ![](https://i.imgur.com/7wrZ96u.gif) |
 
     
 
@@ -121,3 +122,69 @@
 
 - Refresh
     > 새로 상품이 업데이트 된 경우, 어플을 종료했다가 다시 실행시킬 필요없이 스와이프를 통해 새로운 제품을 볼 수 있도록 구현하였습니다.
+
+- API 관리
+    > API를 열거형으로 관리하는 경우, 새로운 case를 생성할때마다 관련된 switch문을 매번 수정해야하는 번거로움이 존재합니다. 따라서 API마다 독립적인 구조체타입으로 관리되도록 변경하였습니다. 이로써 코드유지 보수가 용이하며, 문제 발생 시 빠르게 어디에서 생긴 오류인지 명확하게 구분지을 수 있습니다. 
+    > ```swift
+    > // 개선되기 전
+    > protocol URLProtocol {  
+    >     var url: URL? { get }
+    > }
+    >
+    > extension URLRequest {
+    >     init?(url: URLProtocol) {
+    >     guard let url = url.url else {
+    >        return nil
+    >     }
+    >    self.init(url: url)
+    >   }
+    > }
+    >
+    > enum OpenMarketURL: URLProtocol {   
+    > private static let apiHost = "https://market-training.yagom-academy.kr/"
+    >    case healthChecker
+    >    case productDetail(id: Int)
+    > 
+    > 
+    >    var url: URL? {
+    >         switch self {
+    >         case .healthChecker:
+    >               return URL(string: "\(OpenMarketURL.apiHost)healthChecker")
+    >         case .productDetail(let id):
+    >               return URL(string: "\(OpenMarketURL.apiHost)api/products/\(id)")
+    > ```              
+
+
+    > ```swift
+    > // 개선 후
+    > protocol APIProtocol {
+    >      var url: URL? { get }
+    > }
+    >
+    > extension URLRequest {
+    >      init?(api: APIProtocol) {
+    >      guard let url = api.url else {
+    >          return nil
+    >      }
+    >    
+    >       self.init(url: url) 
+    >        }
+    >     }
+    >
+    >    struct HealthCheckerAPI: APIProtocol {
+    >    var url: URL?
+    >
+    >    init(baseURL: BaseURLProtocol = OpenMarketBaseURL()) {
+    >    self.url = URL(string: "\(baseURL.baseURL)healthChecker")
+    >        }
+    >    }
+    >
+    >    struct ProductDetailAPI: APIProtocol {
+    >    var url: URL?
+    >    
+    >    init(_ id: Int, baseURL: BaseURLProtocol = OpenMarketBaseURL()) {
+    >        self.url = URL(string: "\(baseURL.baseURL)api/products/\(id)")
+    >      }
+    >   }
+    >   ```
+
