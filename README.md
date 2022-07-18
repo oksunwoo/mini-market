@@ -16,6 +16,7 @@
 >- NotificationCenter
 >- jsonParser
 >- RefreshControl
+>- 의존성 주입
 ### 개발 환경
 > ![](https://img.shields.io/badge/Xcode-13.2.1-blue) ![](https://img.shields.io/badge/Swift-5.5-orange) 
 
